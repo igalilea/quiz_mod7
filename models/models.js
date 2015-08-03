@@ -37,11 +37,20 @@ sequelize.sync().then(function() {
 	// success(..) ejecuta el manejador una vez creada la tabla
 	Quiz.count().then(function(count) {
 		if(count === 0) {  // la tabla se inicializa solo si está vacía
+			Quiz.create({ pregunta: 'Director de Malas Calles',
+						  respuesta: 'Martin Scorsese'
+						});
 			Quiz.create({ pregunta: 'Capital de Italia',
 						  respuesta: 'Roma'
 						});
 			Quiz.create({ pregunta: 'Capital de Portugal',
 						  respuesta: 'Lisboa'
+						});
+			Quiz.create({ pregunta: 'Autor de Calles y otros relatos',
+						  respuesta: 'Stephen Dixon'
+						});
+			Quiz.create({ pregunta: 'Autor de El Capital',
+						  respuesta: 'Karl Marx'
 						})
 			.then(function(){console.log('Base de datos inicializada')});
 		};
